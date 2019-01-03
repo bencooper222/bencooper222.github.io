@@ -107,7 +107,7 @@
     ></script>
 
     <script>
-      let attributes;
+      //   let attributes;
       const animate = () => {
         const svg = Snap('#logo');
         const paths = svg.selectAll('path~path');
@@ -126,14 +126,19 @@
         const spacing = 48.026;
 
         // attributes = paths.items.map(el => el.attr('transform'));
-
+        const urlParamTime = Number(
+          new URLSearchParams(window.location.search).get('time'),
+        );
+        let time =
+          urlParamTime == null || isNaN(urlParamTime) ? 500 : urlParamTime;
+        console.log(`using time of ${time}`);
         paths.items.forEach((el, i) => {
           el.animate(
             {
               transform: `t${i === 0 ? spacing * 2 : spacing},0`,
               opacity: 1.0,
             },
-            400,
+            time,
             mina.backin,
           );
         });
