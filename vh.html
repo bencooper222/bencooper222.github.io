@@ -130,7 +130,7 @@
           new URLSearchParams(window.location.search).get('time'),
         );
         let time =
-          urlParamTime == null || isNaN(urlParamTime) ? 500 : urlParamTime;
+          urlParamTime == null || isNaN(urlParamTime) ? 400 : urlParamTime;
         console.log(`using time of ${time}`);
         paths.items.forEach((el, i) => {
           el.animate(
